@@ -4,9 +4,9 @@ Conteúdo
 
 - [Introdução ao Cypress](#introducao-cypress)
 - [Pre-requisitos](#pre-requisitos)
-- [Instalação do Cypress](#Instalacao-do-Cypress)
+- [Instalação do Cypress](#Instalação-do-Cypress)
 - [Estrutura e regras da escrita de testes](#Estrutura-e-regras-da-escrita-de-testes)
-- [Automação de APIs com Cypress](#automaçao-de-apis-com-cypress)
+- [Automação de APIs com Cypress](#automação-de-apis-com-cypress)
 - [Principais Comandos Utilizados](#Principais-Comandos-Utilizados)
 - [Hooks do Cypress](#Hooks-do-Cypress)
 - [Modo de Execução do Cypress](#Modo-de-Execução-do-Cypress)
