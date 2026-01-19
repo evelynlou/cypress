@@ -1,11 +1,26 @@
 ## Automação com Cypress
 
-## Introdução
+Conteúdo
+
+- [Introdução ao Cypress](#introducao-cypress)
+- [Pre-requisitos](#pre-requisitos)
+- [Estrutura e regras da escrita de testes](#Estrutura-e-regras-da-escrita-de-testes)
+- [Automação de APIs com Cypress](#automaçao-de-apis-com-cypress)
+- [Principais Comandos Utilizados](#Principais-Comandos-Utilizados)
+- [Hooks do Cypress](#Hooks-do-Cypress)
+- [Modo de Execução do Cypress](#Modo-de-Execução-do-Cypress)
+- [Estrutura de Arquivos e Configurações](#Estrutura-de-Arquivos-e-Configurações)
+
+
+---
+
+## Introdução ao Cypress
 
 O **Cypress** é uma ferramenta moderna de automação de testes para aplicações web, desenvolvida como uma biblioteca JavaScript.
 Ele permite a criação de testes **end-to-end (E2E)** e **testes de componentes**, facilitando a escrita, execução e depuração de cenários reais de uso em aplicações front-end.
 Além disso, o Cypress vai além de testes puramente visuais: também é possível validar comportamentos de **APIs**, efetuar **mocks de requisições**, interagir com o **sistema de arquivos** e controlar o **ambiente de execução**, permitindo uma cobertura de testes mais completa e eficiente.
 
+---
 
 ## Pré-requisitos
 
@@ -21,6 +36,7 @@ Para utilizar o Cypress, é necessário ter os seguintes recursos instalados:
   Recomendado: **Visual Studio Code**  
   https://code.visualstudio.com
   
+---
 
 ## Estrutura e regras da escrita de testes
 
@@ -72,13 +88,13 @@ cy.get('input[type="text"]')
 cy.get('@textField')
 .should('have.value', 'Olá mundo!')
 ```
-Documentação sobre a regrra de encadeamento:
+Documentação sobre a Regra de encadeamento:
 [Regra de Encadeamento](https://docs.cypress.io/guides/core-concepts/retry-ability)
 
-## Automação de APIs com Cypress
+---
 
-O Cypress vai muito além de validações realizadas no front-end.  
-Ele também permite a automação de **testes de API**, possibilitando validar regras de negócio, contratos de resposta e fluxos de integração sem depender da interface gráfica.
+## Automação de APIs com Cypress
+O Cypress oferece suporte à automação de testes de API, possibilitando a validação de endpoints e regras de negócio de forma isolada, sem dependência da interface gráfica.
 
 Esse tipo de teste é especialmente útil para:
 
@@ -88,6 +104,17 @@ Esse tipo de teste é especialmente útil para:
 - Garantir regras de negócio no backend
 - Executar testes mais rápidos e estáveis
 - Complementar testes E2E com cobertura de API
+
+```js
+describe('Testes de API - Usuários', () => {
+  it('Deve retornar a lista de usuários', () => {
+    cy.request('GET', '/users').then((response) => {
+      expect(response.status).to.eq(200)
+      expect(response.body).to.be.an('array')
+    })
+  })
+})
+```
 
 ### Boas práticas em testes de API com Cypress
 
@@ -103,9 +130,11 @@ Esse tipo de teste é especialmente útil para:
 
 - Utilizar failOnStatusCode: false quando o erro é esperado
 
-## Principais Comandos Utilizados - verificar se mantenho 
-O cypress possui diversos comandos de ação e verificação, segue abaixo os principais utilizados, toda vez que chamar um comando, começamos com “cy.”:
-### Principais comandos do Cypress
+---
+
+## Principais Comandos Utilizados
+O Cypress possui diversos comandos de ação e verificação, abaixo estão listados os principais comandos utilizados., toda vez que chamar um comando, começamos com o prefixo `cy.`:
+
 
 | Comando | Função | Exemplo |
 |-------|--------|--------|
@@ -122,6 +151,13 @@ O cypress possui diversos comandos de ação e verificação, segue abaixo os pr
 Documentação completa de comandos:
 [Cypress API: Table of Contents | Cypress Documentation ](https://docs.cypress.io/api/table-of-contents)
 
+### Outros recursos do Cypress
+
+Além dos comandos, o Cypress disponibiliza utilitários e funções auxiliares, como `Cypress._`, que permite trabalhar com bibliotecas como **Lodash**.  
+Esses recursos podem ser utilizados para repetir ações, manipular dados ou controlar execuções, como repetir uma ação um determinado número de vezes.
+
+---
+
 ## Hooks do Cypress
 Os hooks são utilizados para executar ações antes e depois do conjunto de testes (describe) ou de cada caso de teste (it).
 
@@ -137,13 +173,15 @@ Exemplo:
 
 ```js
       beforeEach(() => {
-        cy.visitPage(produto.url)
+        cy.visit(produto.url)
 ```
 Dessa forma, a cada caso de teste (it) a página é visitada novamente, garantindo fluxo limpo e sem cache.
 
+---
+
 ## Modo de Execução do Cypress
 O Cypress pode ser executado de duas formas:
-### Modos de Execução do Cypress
+
 
 | Modo | Comando | Uso comum |
 |------|--------|-----------|
@@ -158,3 +196,18 @@ No modo interativo, é possível observar:
 - Captura de requests (útil para debugging)
 
 O modo headless é ideal quando não é necessário abrir o navegador para ver a execução, por exemplo, em automações no CI.
+
+---
+
+## Estrutura de Arquivos e Configurações
+O Cypress possui diversas pastas, e cada uma delas é direcionada para uma característica específica do projeto.
+
+
+| Caminho | Descrição |
+|--------|-----------|
+| `package.json` | Arquivo principal do projeto. Armazena dependências e scripts de execução (ex.: `cy:open`, `cy:run`) |
+| `cypress.config.js` | Configuração global do Cypress (`baseUrl`, `viewport`, `timeouts`, `retries`, etc.) |
+| `cypress/e2e/` | Diretório onde ficam os testes automatizados (`.cy.js` ou `.cy.ts`) |
+| `cypress/fixtures/` | Massa de dados, mocks e arquivos estáticos usados nos testes |
+| `cypress/support/commands.js` | Definição de comandos customizados reutilizáveis |
+| `cypress/support/e2e.js` | Arquivo carregado antes dos testes; importa comandos e configurações globais |
