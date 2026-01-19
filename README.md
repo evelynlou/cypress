@@ -1,4 +1,4 @@
-Automação com cypress
+## Automação com Cypress
 
 ## Introdução
 
