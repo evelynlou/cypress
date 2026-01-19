@@ -4,6 +4,7 @@ Conteúdo
 
 - [Introdução ao Cypress](#introducao-cypress)
 - [Pre-requisitos](#pre-requisitos)
+- [Instalação do Cypress](#Instalacao-do-Cypress)
 - [Estrutura e regras da escrita de testes](#Estrutura-e-regras-da-escrita-de-testes)
 - [Automação de APIs com Cypress](#automaçao-de-apis-com-cypress)
 - [Principais Comandos Utilizados](#Principais-Comandos-Utilizados)
@@ -36,6 +37,30 @@ Para utilizar o Cypress, é necessário ter os seguintes recursos instalados:
   Recomendado: **Visual Studio Code**  
   https://code.visualstudio.com
   
+---
+
+## Instalação do Cypress
+
+Após atender aos pré-requisitos, é necessário instalar o Cypress no projeto.
+
+No diretório do projeto, execute:
+
+```bash
+npm install cypress --save-dev
+```
+
+Ou, para instalar uma versão específica:
+
+```bash
+npm install cypress@<versao> --save-dev
+```
+
+Após a instalação, execute o Cypress pela primeira vez para criar a estrutura padrão:
+
+```bash
+npx cypress open
+```
+
 ---
 
 ## Estrutura e regras da escrita de testes
