@@ -188,6 +188,11 @@ O Cypress pode ser executado de duas formas:
 | Interativo (Test Runner UI) | `npx cypress open` | Desenvolvimento e depuração com visualização dos testes em tempo real |
 | Headless | `npx cypress run` | Execução em pipelines CI/CD, geração de relatórios e testes de performance |
 
+> 💡 **Observação:**  
+> Em projetos que utilizam scripts configurados no `package.json`, a execução pode ser feita utilizando  
+> `npm run <nome-do-script>` (por exemplo: `npm run cy:open` ou `npm run cy:run`).
+
+
 No modo interativo, é possível observar:
 
 - Execução do teste passo a passo
