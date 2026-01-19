@@ -26,7 +26,7 @@ Para utilizar o Cypress, é necessário ter os seguintes recursos instalados:
 
 No Cypress, os testes seguem uma estrutura baseada em blocos, utilizada para organizar cenários de validação.
 
-### `describe()` — Suíte de testes
+ `describe()` — Suíte de testes
 
 Agrupa casos de teste relacionados, representando uma funcionalidade ou fluxo da aplicação.
 
@@ -35,7 +35,7 @@ describe('Validação da busca no site da Intelbras', () => {
   // casos de teste aqui
 })
 ```
-### `it()` — Caso de Teste
+ `it()` — Caso de Teste
 
 Define o teste individual, contendo ações e validações (assertions).
 ```js
