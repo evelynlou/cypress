@@ -103,7 +103,7 @@ Esse tipo de teste é especialmente útil para:
 
 - Utilizar failOnStatusCode: false quando o erro é esperado
 
-## Principais Comandos Utilizados
+## Principais Comandos Utilizados - verificar se mantenho 
 O cypress possui diversos comandos de ação e verificação, segue abaixo os principais utilizados, toda vez que chamar um comando, começamos com “cy.”:
 ### Principais comandos do Cypress
 
